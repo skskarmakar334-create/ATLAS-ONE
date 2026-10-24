@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="ATLAS ONE helps students learn, diagnose gaps, practise deliberately, and track progress with an adaptive study experience.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://ialatlas.com/atlas-one/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>ATLAS ONE — Your personal learning engine</title>
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="ATLAS ONE home">
+      <span class="brand-mark"><span></span><span></span><span></span><span></span></span>
+      <span>ATLAS <b>ONE</b><small>PERSONAL LEARNING ENGINE</small></span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#learn">Learn</a><a href="#diagnose">Diagnose</a><a href="#progress">Progress</a>
+    </nav>
+    <button class="button button-quiet" id="resetButton" type="button" title="Clear saved progress">Reset progress</button>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> YOUR NEXT STEP, MADE CLEAR</div>
+        <h1>Learn smarter.<br><span>One concept at a time.</span></h1>
+        <p class="hero-text">A focused learning workspace that helps you practise, spot knowledge gaps, and choose what to review next.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#diagnose">Start a diagnostic <span aria-hidden="true">↗</span></a><a class="text-link" href="#how-it-works">How it works <span aria-hidden="true">↓</span></a></div>
+        <div class="hero-proof"><span class="proof-icon">✓</span> Free to use · No account required · Progress saved on this device</div>
+      </div>
+      <div class="hero-visual" aria-label="Illustration of a learning progress dashboard">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="visual-core"><span class="core-symbol">A</span><span class="core-label">LEARNING<br>ENGINE</span></div>
+        <div class="float-card card-top"><span class="mini-icon cyan">↗</span><div><small>YOUR NEXT STEP</small><b>Chain rule practice</b></div><span class="card-arrow">→</span></div>
+        <div class="float-card card-bottom"><span class="mini-icon violet">◎</span><div><small>LEARNING LOOP</small><b>Learn · Practise · Review</b></div></div>
+        <div class="visual-caption">BUILT AROUND YOUR PROGRESS</div>
+      </div>
+    </section>
+
+    <section class="stat-grid" aria-label="Your learning overview">
+      <article class="stat-card"><div class="stat-label">QUESTIONS ANSWERED</div><div class="stat-value" id="statAnswered">0</div><div class="stat-note">Across practice sessions</div><span class="stat-symbol">↗</span></article>
+      <article class="stat-card"><div class="stat-label">CORRECT ANSWERS</div><div class="stat-value" id="statCorrect">0%</div><div class="stat-note">Your overall accuracy</div><span class="stat-symbol">◎</span></article>
+      <article class="stat-card"><div class="stat-label">TOPICS PRACTISED</div><div class="stat-value" id="statTopics">0</div><div class="stat-note">Keep building consistency</div><span class="stat-symbol">⌘</span></article>
+      <article class="stat-card"><div class="stat-label">STUDY STREAK</div><div class="stat-value"><span id="statStreak">0</span><small> days</small></div><div class="stat-note">Days with recorded practice</div><span class="stat-symbol">✳</span></article>
+    </section>
+
+    <section class="section" id="learn">
+      <div class="section-heading"><div><div class="eyebrow">YOUR WORKSPACE</div><h2>Choose a learning path</h2></div><p>Start small. Build mastery through deliberate practice.</p></div>
+      <div class="path-grid">
+        <article class="path-card path-featured"><div class="path-icon">∫</div><div class="path-meta">MATHEMATICS · IAL</div><h3>Differentiation</h3><p>Build confidence with derivatives, the chain rule, and common exam-style applications.</p><div class="path-bottom"><span id="diffProgress">0 questions answered</span><button class="button button-small button-primary" data-start-topic="Differentiation">Practise <span>→</span></button></div></article>
+        <article class="path-card"><div class="path-icon purple">π</div><div class="path-meta">MATHEMATICS · FOUNDATIONS</div><h3>Algebra essentials</h3><p>Refresh indices, expanding brackets, and solving simple equations.</p><div class="path-bottom"><span id="algebraProgress">0 questions answered</span><button class="button button-small button-outline" data-start-topic="Algebra">Practise <span>→</span></button></div></article>
+        <article class="path-card"><div class="path-icon green">ƒ</div><div class="path-meta">MATHEMATICS · IAL</div><h3>Functions</h3><p>Review notation, composite functions, and inverse functions.</p><div class="path-bottom"><span id="functionsProgress">0 questions answered</span><button class="button button-small button-outline" data-start-topic="Functions">Practise <span>→</span></button></div></article>
+      </div>
+    </section>
+
+    <section class="section diagnostic-section" id="diagnose">
+      <div class="section-heading"><div><div class="eyebrow">DIAGNOSTIC PRACTICE</div><h2>Find your next best step</h2></div><p>Answer a short set of questions. Your results guide the next recommendation.</p></div>
+      <div class="practice-layout">
+        <div class="practice-intro">
+          <div class="practice-badge"><span class="live-dot"></span> PRACTICE MODE</div>
+          <h3>Small steps.<br>Visible progress.</h3>
+          <p>Choose a topic and work through a short quiz. Each answer includes feedback and an explanation so you can learn from mistakes.</p>
+          <label class="field-label" for="topicSelect">Choose a topic</label>
+          <select id="topicSelect" class="select-control"><option value="All">Mixed diagnostic</option><option value="Differentiation">Differentiation</option><option value="Algebra">Algebra essentials</option><option value="Functions">Functions</option></select>
+          <label class="field-label" for="questionCount">Question set</label>
+          <select id="questionCount" class="select-control"><option value="5">5 questions · Quick check</option><option value="10">10 questions · Focus session</option><option value="all">All available questions</option></select>
+          <button class="button button-primary start-button" id="startQuiz">Start practice <span>→</span></button>
+          <p class="small-note">This is a learning prototype, not an official Pearson Edexcel product.</p>
+        </div>
+        <div class="quiz-panel" id="quizPanel">
+          <div class="quiz-empty"><div class="empty-symbol">?</div><h3>Your next insight starts here</h3><p>Start a practice set to see questions, explanations, and a personalised next-step suggestion.</p><div class="empty-decoration"><span></span><span></span><span></span><span></span><span></span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="progress">
+      <div class="section-heading"><div><div class="eyebrow">LEARNING INTELLIGENCE</div><h2>Your topic map</h2></div><p>Mastery estimates are based on your recorded answers in this browser.</p></div>
+      <div class="mastery-panel">
+        <div class="mastery-head"><div><h3>Topic mastery</h3><p>Use this as a guide for what to review next—not as a formal assessment.</p></div><span class="mastery-legend"><i></i> Estimated mastery</span></div>
+        <div id="masteryList" class="mastery-list"></div>
+      </div>
+      <div class="recommendation-panel"><div class="recommend-icon">✦</div><div class="recommend-copy"><div class="eyebrow">SUGGESTED NEXT STEP</div><h3 id="recommendTitle">Start with a short diagnostic</h3><p id="recommendText">Answer a few questions to build your first topic-level learning snapshot.</p></div><a class="button button-outline" href="#diagnose">Take a quiz <span>→</span></a></div>
+    </section>
+
+    <section class="how-section" id="how-it-works">
+      <div class="eyebrow">THE ATLAS ONE LOOP</div><h2>Not just more content.<br><span>A clearer way to practise.</span></h2>
+      <div class="loop-grid"><div><span class="loop-number">01</span><h3>Learn</h3><p>Review a concept and a worked example.</p></div><div><span class="loop-number">02</span><h3>Diagnose</h3><p>Use short quizzes to uncover gaps.</p></div><div><span class="loop-number">03</span><h3>Practise</h3><p>Focus on the topics that need attention.</p></div><div><span class="loop-number">04</span><h3>Measure</h3><p>Track real answers and revisit concepts.</p></div></div>
+    </section>
+  </main>
+
+  <footer class="footer"><a class="brand footer-brand" href="#home"><span class="brand-mark"><span></span><span></span><span></span><span></span></span><span>ATLAS <b>ONE</b><small>PERSONAL LEARNING ENGINE</small></span></a><p>An independent learning prototype by IAL ATLAS. Not affiliated with or endorsed by Pearson Edexcel.</p><div><a href="https://ialatlas.com/" rel="noopener">IAL ATLAS</a><a href="#home">Back to top ↑</a></div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
